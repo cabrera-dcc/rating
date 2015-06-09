@@ -33,19 +33,30 @@
 		    </div>
 
 	    	<div class="collapse navbar-collapse" id="navbar-collapse">
-	        	<strong><ul class="nav navbar-nav navbar-left">
-	            	<li><a rel="" target="" type="" hreflang="" href="#">MENU</a></li>
-	            	<li><a rel="" target="" type="" hreflang="" href="#">MENU</a></li>
+	        	<ul class="nav navbar-nav navbar-left">
+	            	<li><a rel="" target="" type="" hreflang="" href="#"><strong>MENU</strong></a></li>
+	            	<li><a rel="" target="" type="" hreflang="" href="#"><strong>MENU</strong></a></li>
 	        	</ul>
 	        	<ul class="nav navbar-nav navbar-right">
 	            	<li class="dropdown">
-	                	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">DROPDOWN <span class="caret"></span></a>
+	                	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><strong>ADMINISTRACIÓN</strong> <span class="caret"></span></a>
 	                	<ul class="dropdown-menu" role="menu">
-	                    	<li><a rel="" target="" type="" hreflang="" href="#"><span class="glyphicon glyphicon-certificate" aria-hidden="true"></span> Menu</a></li>
-	                    	<li><a rel="" target="" type="" hreflang="" href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Menu</a></li>
+	                    	<form action="index.php" method="POST" accept-charset="UTF-8" enctype="text/plain" target="_self" class="container-fluid text-center">
+								<div class="divider"></div>
+								<div class="form-group">
+									<label for="userInput">Administrador</label>
+									<input name="user" type="text" class="form-control" id="userInput" placeholder="Administrador" required="required"/>
+								</div>
+								<div class="form-group">
+									<label for="passwordInput">Password</label>
+									<input name="password" type="password" class="form-control" id="passwordInput" placeholder="Password" required="required"/>
+								</div>
+								<div class="divider"></div>
+								<button type="submit" class="btn btn-default btn-block">Log in</button>
+							</form>
 	                	</ul>
 	            	</li>
-	        	</ul></strong>
+	        	</ul>
 	    	</div>
    		</div>
 	</nav>
