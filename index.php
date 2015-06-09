@@ -6,7 +6,7 @@
 	<meta name="application-name" content="Rating"/>
     <meta name="description" content="Sistema de valoración de projectos"/>
     <meta name="author" content="Daniel Cabrera Cebrero (http://cabrera-dcc.github.io)"/>
-    <meta name="version" content="Alpha (rev. 20150608)"/>
+    <meta name="version" content="Alpha (rev. 20150609)"/>
     <meta name="keywords" content="opensource,rating,projects"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
@@ -52,11 +52,38 @@
 
 	<main class="container">
 		<section class="row text-center">	
-			<form id="emailForm" name="emailAdressForm" action="index.php" method="POST" accept-charset="UTF-8" enctype="text/plain" target="_self" class="col-sm-8 col-sm-push-2 col-md-6 col-md-push-3">
+			<form id="emailForm" name="emailAdressForm" action="index.php" method="POST" accept-charset="UTF-8" enctype="text/plain" target="_self" class="text-uppercase col-sm-8 col-sm-push-2 col-md-6 col-md-push-3">
 				<div class="form-group">
 					<div class="input-group">
 						<div class="input-group-addon">@</div>
-						<input name="email" type="email" class="form-control" id="emailAdress" placeholder="Introduce tu email" required="required"/>
+						<input name="email" type="email" class="form-control" id="emailAdressInput" placeholder="Introduce tu email" required="required"/>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="project1Input"><h4>Proyecto 1</h4></label>
+					<div class="input-group">
+						<div class="input-group-addon">@</div>
+						<input name="projects[]" type="number" class="form-control" id="project1Input" placeholder="Proyecto 1" required="required"/>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="inlineRadio"><h4>Proyecto 2</h4></label>
+					<div class="input-group" id="inlineRadio">
+						<label class="radio-inline">
+							<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1"> 1
+						</label>
+						<label class="radio-inline">
+							<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2"> 2
+						</label>
+						<label class="radio-inline">
+							<input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="3"> 3
+						</label>
+						<label class="radio-inline">
+							<input type="radio" name="inlineRadioOptions" id="inlineRadio4" value="4"> 4
+						</label>
+						<label class="radio-inline">
+							<input type="radio" name="inlineRadioOptions" id="inlineRadio5" value="5"> 5
+						</label>
 					</div>
 				</div>
 				<button type="submit" class="btn btn-default btn-block">Valorar</button>

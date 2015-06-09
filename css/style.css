@@ -20,3 +20,7 @@ section{
 .navbar{
 	border-radius: 0;
 }
+
+#inlineRadio{
+	margin: auto;
+}
