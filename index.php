@@ -20,7 +20,7 @@
     	</div>
 	</header>
 
-	<nav class="navbar navbar-default navbar-inverse text-uppercase" role="navigation">
+	<nav class="navbar navbar-default navbar-inverse" role="navigation">
 		<div class="container">
 		    <div class="navbar-header">
 		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
@@ -33,26 +33,25 @@
 		    </div>
 
 	    	<div class="collapse navbar-collapse" id="navbar-collapse">
-	        	<ul class="nav navbar-nav navbar-left">
-	            	<li><a rel="" target="" type="" hreflang="" href="#"><strong>MENU</strong></a></li>
-	            	<li><a rel="" target="" type="" hreflang="" href="#"><strong>MENU</strong></a></li>
+	        	<ul class="nav navbar-nav navbar-left text-uppercase">
+	            	<li><a rel="" target="" type="" hreflang="" href="#"><strong>Menu</strong></a></li>
 	        	</ul>
-	        	<ul class="nav navbar-nav navbar-right">
+	        	<ul class="nav navbar-nav navbar-right text-uppercase">
 	            	<li class="dropdown">
-	                	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><strong>ADMINISTRACIÓN</strong> <span class="caret"></span></a>
-	                	<ul class="dropdown-menu" role="menu">
-	                    	<form action="index.php" method="POST" accept-charset="UTF-8" enctype="text/plain" target="_self" class="container-fluid text-center">
+	                	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><strong>Administración</strong> <span class="caret"></span></a>
+	                	<ul class="dropdown-menu text-capitalize" role="menu">
+	                    	<form id="loginForm" name="adminLoginForm" action="index.php" method="POST" accept-charset="UTF-8" enctype="text/plain" target="_self" class="container-fluid text-center">
 								<div class="divider"></div>
 								<div class="form-group">
 									<label for="userInput">Administrador</label>
-									<input name="user" type="text" class="form-control" id="userInput" placeholder="Administrador" required="required"/>
+									<input name="user" type="text" class="form-control" id="userInput" required="required"/>
 								</div>
 								<div class="form-group">
 									<label for="passwordInput">Password</label>
-									<input name="password" type="password" class="form-control" id="passwordInput" placeholder="Password" required="required"/>
+									<input name="password" type="password" class="form-control" id="passwordInput" required="required"/>
 								</div>
-								<div class="divider"></div>
 								<button type="submit" class="btn btn-default btn-block">Log in</button>
+								<div class="divider"></div>
 							</form>
 	                	</ul>
 	            	</li>
@@ -61,43 +60,82 @@
    		</div>
 	</nav>
 
-	<main class="container">
+	<main class="container-fluid">
 		<section class="row text-center">	
-			<form id="emailForm" name="emailAdressForm" action="index.php" method="POST" accept-charset="UTF-8" enctype="text/plain" target="_self" class="text-uppercase col-sm-8 col-sm-push-2 col-md-6 col-md-push-3">
-				<div class="form-group">
-					<div class="input-group">
-						<div class="input-group-addon">@</div>
-						<input name="email" type="email" class="form-control" id="emailAdressInput" placeholder="Introduce tu email" required="required"/>
+			<form id="emailForm" name="emailAdressForm" action="index.php" method="POST" accept-charset="UTF-8" enctype="text/plain" target="_self" class="col-sm-10 col-sm-push-1 col-lg-8 col-lg-push-2">
+				
+				<div class="row">
+					<div class="col-xs-12 col-sm-8 col-md-9">
+						<div class="form-group">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h3 class="panel-title text-uppercase">Proyecto</h3>
+								</div>
+								<div class="panel-body">
+									Nombre del Proyecto
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h3 class="panel-title text-uppercase">Responsables</h3>
+								</div>
+								<div class="panel-body">
+									Responsables del Proyecto
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-xs-12 col-sm-4 col-md-3">
+						<a href="#" class="thumbnail">
+							<img src="images/generic-user.png" alt="alt">
+						</a>
 					</div>
 				</div>
-				<div class="form-group">
-					<label for="project1Input"><h4>Proyecto 1</h4></label>
-					<div class="input-group">
-						<div class="input-group-addon">@</div>
-						<input name="projects[]" type="number" class="form-control" id="project1Input" placeholder="Proyecto 1" required="required"/>
+				
+				<div class="row">
+					<div class="form-group col-xs-12">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<label for="inlineRadio"><h3 class="panel-title text-uppercase">Valoración</h3></label>
+							</div>
+							<div class="panel-body">
+								<div class="input-group" id="inlineRadio">
+									<label class="radio-inline">
+										<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1" required="required"/> 1
+									</label>
+									<label class="radio-inline">
+										<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2" required="required"/> 2
+									</label>
+									<label class="radio-inline">
+										<input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="3" required="required"/> 3
+									</label>
+									<label class="radio-inline">
+										<input type="radio" name="inlineRadioOptions" id="inlineRadio4" value="4" required="required"/> 4
+									</label>
+									<label class="radio-inline">
+										<input type="radio" name="inlineRadioOptions" id="inlineRadio5" value="5" required="required"/> 5
+									</label>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
-				<div class="form-group">
-					<label for="inlineRadio"><h4>Proyecto 2</h4></label>
-					<div class="input-group" id="inlineRadio">
-						<label class="radio-inline">
-							<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1"> 1
-						</label>
-						<label class="radio-inline">
-							<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2"> 2
-						</label>
-						<label class="radio-inline">
-							<input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="3"> 3
-						</label>
-						<label class="radio-inline">
-							<input type="radio" name="inlineRadioOptions" id="inlineRadio4" value="4"> 4
-						</label>
-						<label class="radio-inline">
-							<input type="radio" name="inlineRadioOptions" id="inlineRadio5" value="5"> 5
-						</label>
+				<div class="row">
+					
+					<div class="form-group col-xs-12 col-sm-8 col-md-10">
+						<div class="input-group">
+							<div class="input-group-addon">@</div>
+							<input name="email" type="email" class="form-control" id="emailAdressInput" placeholder="Introduce un email" required="required"/>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-4 col-md-2">
+						<button type="submit" class="btn btn-default btn-block">Enviar</button>
 					</div>
 				</div>
-				<button type="submit" class="btn btn-default btn-block">Valorar</button>
+				
 			</form>
 		</section>
 	</main>
