@@ -1,3 +1,4 @@
+<?php require_once("scripts/start.php"); ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,7 +7,7 @@
 	<meta name="application-name" content="Rating"/>
     <meta name="description" content="Sistema de valoración de projectos"/>
     <meta name="author" content="Daniel Cabrera Cebrero (http://cabrera-dcc.github.io)"/>
-    <meta name="version" content="Alpha (rev. 20150609)"/>
+    <meta name="version" content="Alpha (rev. 20150610)"/>
     <meta name="keywords" content="opensource,rating,projects"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
@@ -62,7 +63,7 @@
 
 	<main class="container-fluid">
 		<section class="row text-center">	
-			<form id="emailForm" name="emailAdressForm" action="index.php" method="POST" accept-charset="UTF-8" enctype="text/plain" target="_self" class="col-sm-10 col-sm-push-1 col-lg-8 col-lg-push-2">
+			<form id="emailForm" name="emailAdressForm" action="scripts/add_score.php" method="POST" accept-charset="UTF-8" target="_self" class="col-sm-10 col-sm-push-1 col-lg-8 col-lg-push-2">
 				
 				<div class="row">
 					<div class="col-xs-12 col-sm-8 col-md-9">
@@ -72,7 +73,7 @@
 									<h3 class="panel-title text-uppercase">Proyecto</h3>
 								</div>
 								<div class="panel-body">
-									Nombre del Proyecto
+									<?php if(isset($name)) {echo $name;} else{echo "No hay proyectos que valorar en este momento";} ?>
 								</div>
 							</div>
 						</div>
@@ -82,7 +83,7 @@
 									<h3 class="panel-title text-uppercase">Responsables</h3>
 								</div>
 								<div class="panel-body">
-									Responsables del Proyecto
+									<?php if(isset($responsible)) echo $responsible; ?>
 								</div>
 							</div>
 						</div>
@@ -104,19 +105,19 @@
 							<div class="panel-body">
 								<div class="input-group" id="inlineRadio">
 									<label class="radio-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1" required="required"/> 1
+										<input type="radio" name="score" id="inlineRadio1" value="1" required="required"/> 1
 									</label>
 									<label class="radio-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2" required="required"/> 2
+										<input type="radio" name="score" id="inlineRadio2" value="2" required="required"/> 2
 									</label>
 									<label class="radio-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="3" required="required"/> 3
+										<input type="radio" name="score" id="inlineRadio3" value="3" required="required"/> 3
 									</label>
 									<label class="radio-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio4" value="4" required="required"/> 4
+										<input type="radio" name="score" id="inlineRadio4" value="4" required="required"/> 4
 									</label>
 									<label class="radio-inline">
-										<input type="radio" name="inlineRadioOptions" id="inlineRadio5" value="5" required="required"/> 5
+										<input type="radio" name="score" id="inlineRadio5" value="5" required="required"/> 5
 									</label>
 								</div>
 							</div>
@@ -129,6 +130,9 @@
 						<div class="input-group">
 							<div class="input-group-addon">@</div>
 							<input name="email" type="email" class="form-control" id="emailAdressInput" placeholder="Introduce un email" required="required"/>
+						</div>
+						<div class="input-group">
+							<input name="project" type="hidden" class="form-control" id="projectInput" value="<?php if(isset($id)) {echo $id;} else{echo '0';} ?>" required="required"/>
 						</div>
 					</div>
 					<div class="col-xs-12 col-sm-4 col-md-2">
