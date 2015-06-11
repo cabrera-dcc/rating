@@ -27,7 +27,7 @@
 	<meta name="application-name" content="Rating"/>
     <meta name="description" content="Sistema de valoración de projectos"/>
     <meta name="author" content="Daniel Cabrera Cebrero (http://cabrera-dcc.github.io)"/>
-    <meta name="version" content="Alpha (rev. 20150611)"/>
+    <meta name="version" content="Alpha (rev. 20150612)"/>
     <meta name="keywords" content="opensource,rating,projects"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
@@ -40,7 +40,6 @@
         	<h1><small>VALORACIÓN DE PROYECTOS</small></h1>
     	</div>
 	</header>
-
 	<nav class="navbar navbar-default navbar-inverse" role="navigation">
 		<div class="container">
 		    <div class="navbar-header">
@@ -50,13 +49,9 @@
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
 		      </button>
-		        <a class="navbar-brand" rel="" target="" type="" hreflang="" href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
+		        <a class="navbar-brand" rel="bookmark" target="_self" hreflang="es" href="index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
 		    </div>
-
 	    	<div class="collapse navbar-collapse" id="navbar-collapse">
-	        	<ul class="nav navbar-nav navbar-left text-uppercase">
-	            	<li><a rel="" target="" type="" hreflang="" href="#"><strong>Menu</strong></a></li>
-	        	</ul>
 	        	<ul class="nav navbar-nav navbar-right text-uppercase">
 	            	<li class="dropdown">
 	                	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><strong>Administración</strong> <span class="caret"></span></a>
@@ -80,11 +75,9 @@
 	    	</div>
    		</div>
 	</nav>
-
 	<main class="container-fluid">
 		<section class="row text-center">	
 			<form id="emailForm" name="emailAdressForm" action="scripts/add_score.php" method="POST" accept-charset="UTF-8" target="_self" class="col-sm-10 col-sm-push-1 col-lg-8 col-lg-push-2">
-				
 				<div class="row">
 					<div class="col-xs-12 col-sm-8 col-md-9">
 						<div class="form-group">
@@ -108,14 +101,12 @@
 							</div>
 						</div>
 					</div>
-					
 					<div class="col-xs-12 col-sm-4 col-md-3">
 						<a href="#" class="thumbnail">
-							<img src="<?php if(isset($picture)) {echo $picture;} else{echo 'images/generic-user.png';} ?>" alt="alt">
+							<img src="<?php if(isset($picture) && $picture != '') {echo $picture;} else{echo 'images/generic-user.png';} ?>" alt="alt">
 						</a>
 					</div>
 				</div>
-				
 				<div class="row">
 					<div class="form-group col-xs-12">
 						<div class="panel panel-default">
@@ -145,7 +136,6 @@
 					</div>
 				</div>
 				<div class="row">
-					
 					<div class="form-group col-xs-12 col-sm-8 col-md-10">
 						<div class="input-group">
 							<div class="input-group-addon">@</div>
@@ -159,11 +149,9 @@
 						<button type="submit" class="btn btn-default btn-block">Enviar</button>
 					</div>
 				</div>
-				
 			</form>
 		</section>
 	</main>
-
 	<footer class="container small">
         <div class="row">
         	<div class="col-xs-12">
@@ -173,7 +161,6 @@
         	</div>
         </div>
 	</footer>
-
 	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 </body>
