@@ -27,7 +27,7 @@
 	<meta name="application-name" content="Rating"/>
     <meta name="description" content="Sistema de valoración de projectos"/>
     <meta name="author" content="Daniel Cabrera Cebrero (http://cabrera-dcc.github.io)"/>
-    <meta name="version" content="Alpha (rev. 20150611)"/>
+    <meta name="version" content="Beta-1 (rev. 20150612)"/>
     <meta name="keywords" content="opensource,rating,projects"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
@@ -50,9 +50,8 @@
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
 		      </button>
-		        <a class="navbar-brand" rel="" target="" type="" hreflang="" href="../scripts/close_session.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> CLOSE</a>
+		        <a class="navbar-brand" rel="bookmark" target="_self" hreflang="" href="../scripts/close_session.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> CLOSE</a>
 		    </div>
-
 	    	<div class="collapse navbar-collapse" id="navbar-collapse">
 	        	<ul class="nav navbar-nav navbar-right text-uppercase">
 	            	<li class="dropdown">
@@ -77,7 +76,6 @@
 	    	</div>
    		</div>
 	</nav>
-
 	<main class="container-fluid">
 		<section class="row text-center">	
 			<div class="panel panel-default small">
@@ -88,8 +86,8 @@
 		  					<tr>
 		  						<th><span class="glyphicon glyphicon-certificate" aria-hidden="true"></span></th>
 		  						<th>Nombre <span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></th>
-		  						<th>Responsables <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></th>
-		  						<th>Estado <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></th>
+		  						<th>Responsables <span class="glyphicon glyphicon-user" aria-hidden="true"></span></th>
+		  						<th>Estado <span class="glyphicon glyphicon-flag" aria-hidden="true"></span></th>
 		  						<th>Opciones <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></th>
 		  					</tr>
 		  					<?php print_projects(); ?>
@@ -105,8 +103,8 @@
 		  					<tr>
 		  						<th><span class="glyphicon glyphicon-certificate" aria-hidden="true"></span></th>
 		  						<th>Nombre <span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></th>
-		  						<th>Responsables <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></th>
-		  						<th>Valoración media <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></th>
+		  						<th>Responsables <span class="glyphicon glyphicon-user" aria-hidden="true"></span></th>
+		  						<th>Valoración media <span class="glyphicon glyphicon-scale" aria-hidden="true"></span></th>
 		  					</tr>
 		  					<?php print_ranking(); ?>
 	  					</table>
@@ -115,7 +113,6 @@
 			</div>
 		</section>
 	</main>
-
 	<footer class="container small">
         <div class="row">
         	<div class="col-xs-12">
@@ -125,7 +122,6 @@
         	</div>
         </div>
 	</footer>
-
 	<script type="text/javascript" src="../js/jquery-2.1.4.min.js"></script>
 	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
 </body>
