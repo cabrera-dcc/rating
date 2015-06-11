@@ -11,7 +11,7 @@
 
 function connectDB()
 {
-	require_once("db_config.php");
+	require("db_config.php");
 
 	try{
 		$db = new PDO("mysql:host=$db_host;dbname=$db_name;charset=$db_charset", $db_user, $db_passwd);
@@ -65,4 +65,32 @@ function insert_score($idProject,$email,$score)
 		return true;
 	}
 	return false;
+}
+
+function select($query)
+{
+	$db = connectDB();
+	$rows = $db->query($query);
+
+	if($rows){
+		return $rows;
+	}
+	
+	return false;
+}
+
+function isEmailSaved($email,$project)
+{
+	/*$query = "SELECT email FROM project_email_score WHERE email=$email";
+	$db = connectDB();
+	$rows = $db->query($query);
+	if($rows){
+		foreach ($rows as $row) {
+			if($row['email'] == $email && $row['idProject'] == $project){
+				return false;
+			}
+		}
+		return true;
+	}
+	return true;*/
 }

@@ -7,7 +7,7 @@
 	<meta name="application-name" content="Rating"/>
     <meta name="description" content="Sistema de valoración de projectos"/>
     <meta name="author" content="Daniel Cabrera Cebrero (http://cabrera-dcc.github.io)"/>
-    <meta name="version" content="Alpha (rev. 20150610)"/>
+    <meta name="version" content="Alpha (rev. 20150611)"/>
     <meta name="keywords" content="opensource,rating,projects"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
@@ -91,7 +91,8 @@
 					
 					<div class="col-xs-12 col-sm-4 col-md-3">
 						<a href="#" class="thumbnail">
-							<img src="images/generic-user.png" alt="alt">
+							<!--<img src="images/generic-user.png" alt="alt">-->
+							<img src="<?php if(isset($picture)) {echo $picture;} else{echo 'images/generic-user.png';} ?>" alt="alt">
 						</a>
 					</div>
 				</div>
@@ -132,7 +133,7 @@
 							<input name="email" type="email" class="form-control" id="emailAdressInput" placeholder="Introduce un email" required="required"/>
 						</div>
 						<div class="input-group">
-							<input name="project" type="hidden" class="form-control" id="projectInput" value="<?php if(isset($id)) {echo $id;} else{echo '0';} ?>" required="required"/>
+							<input name="project" type="text" class="form-control" id="projectInput" value="<?php if(isset($id)) {echo $id;} else{echo '0';} ?>" required="required"/>
 						</div>
 					</div>
 					<div class="col-xs-12 col-sm-4 col-md-2">
