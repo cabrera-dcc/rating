@@ -1,4 +1,24 @@
-<?php require_once("scripts/start.php"); ?>
+<?php 
+	session_start();
+	if(!isset($_SESSION['AUT']) || !isset($_POST['login'])){
+		$_SESSION['AUT'] = "N";
+	}
+	if(isset($_POST['login']) && isset($_POST['user']) && isset($_POST['password'])){
+		require_once("scripts/db_functions.php");
+		$query = "SELECT * FROM admins";
+		$db = connectDB();
+		$rows = $db->query($query);
+		if(count($rows) > 0){
+			foreach ($rows as $row) {
+				if($row['user'] == $_POST['user'] && $row['password'] == $_POST['password']){
+					$_SESSION['AUT'] = "S";
+					header("LOCATION: views/indexadmin.php");
+				}
+			}
+		}
+	}
+	require_once("scripts/start.php");
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -41,7 +61,7 @@
 	            	<li class="dropdown">
 	                	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><strong>Administración</strong> <span class="caret"></span></a>
 	                	<ul class="dropdown-menu text-capitalize" role="menu">
-	                    	<form id="loginForm" name="adminLoginForm" action="index.php" method="POST" accept-charset="UTF-8" enctype="text/plain" target="_self" class="container-fluid text-center">
+	                    	<form id="loginForm" name="adminLoginForm" action="index.php" method="POST" accept-charset="UTF-8" target="_self" class="container-fluid text-center">
 								<div class="divider"></div>
 								<div class="form-group">
 									<label for="userInput">Administrador</label>
@@ -51,7 +71,7 @@
 									<label for="passwordInput">Password</label>
 									<input name="password" type="password" class="form-control" id="passwordInput" required="required"/>
 								</div>
-								<button type="submit" class="btn btn-default btn-block">Log in</button>
+								<button name="login" type="submit" class="btn btn-default btn-block">Log in</button>
 								<div class="divider"></div>
 							</form>
 	                	</ul>
@@ -91,7 +111,6 @@
 					
 					<div class="col-xs-12 col-sm-4 col-md-3">
 						<a href="#" class="thumbnail">
-							<!--<img src="images/generic-user.png" alt="alt">-->
 							<img src="<?php if(isset($picture)) {echo $picture;} else{echo 'images/generic-user.png';} ?>" alt="alt">
 						</a>
 					</div>
@@ -133,7 +152,7 @@
 							<input name="email" type="email" class="form-control" id="emailAdressInput" placeholder="Introduce un email" required="required"/>
 						</div>
 						<div class="input-group">
-							<input name="project" type="text" class="form-control" id="projectInput" value="<?php if(isset($id)) {echo $id;} else{echo '0';} ?>" required="required"/>
+							<input name="project" type="hidden" class="form-control" id="projectInput" value="<?php if(isset($id)) {echo $id;} else{echo '0';} ?>" required="required"/>
 						</div>
 					</div>
 					<div class="col-xs-12 col-sm-4 col-md-2">
