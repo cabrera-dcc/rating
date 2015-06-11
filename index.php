@@ -27,7 +27,7 @@
 	<meta name="application-name" content="Rating"/>
     <meta name="description" content="Sistema de valoración de projectos"/>
     <meta name="author" content="Daniel Cabrera Cebrero (http://cabrera-dcc.github.io)"/>
-    <meta name="version" content="Alpha (rev. 20150612)"/>
+    <meta name="version" content="Beta-1 (rev. 20150612)"/>
     <meta name="keywords" content="opensource,rating,projects"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
