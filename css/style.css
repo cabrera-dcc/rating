@@ -1,3 +1,13 @@
+/*
+* Theme Name: Project Rating System (Default);
+* Description: Default theme for Rating, the project rating system (https://github.com/cabrera-dcc/rating);
+* Author: cabrera-dcc (https://github.com/cabrera_dcc);
+* Author URI: http://cabrera-dcc.github.io;
+* Version: Beta-1 (rev. 20150611);
+* License: MIT License;
+* License URI: http://opensource.org/licenses/MIT;
+*/
+
 @-moz-document url-prefix() {
   	fieldset { display: table-cell; }
 }

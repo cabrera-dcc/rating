@@ -1,5 +1,23 @@
 <?php
-	require("../scripts/admin.php");
+	session_start();
+	if(!isset($_SESSION['AUT']) || $_SESSION['AUT'] != "S"){
+		if(isset($_SESSION['AUT'])){
+			unset($_SESSION['AUT']);
+		}
+		session_destroy();
+		header("Location: ../index.php?ERROR=NOT_AUTHORIZED");
+	}
+	else{
+		require_once("../scripts/admin.php");
+		if(isset($_GET['option']) && isset($_GET['ref'])){
+			if($_GET['option'] == "start"){
+				start_score($_GET['option'],$_GET['ref']);
+			}
+			elseif($_GET['option'] == "close"){
+				close_score($_GET['option'],$_GET['ref']);
+			}
+		}
+	}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -32,13 +50,10 @@
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
 		      </button>
-		        <a class="navbar-brand" rel="" target="" type="" hreflang="" href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
+		        <a class="navbar-brand" rel="" target="" type="" hreflang="" href="../scripts/close_session.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> CLOSE</a>
 		    </div>
 
 	    	<div class="collapse navbar-collapse" id="navbar-collapse">
-	        	<ul class="nav navbar-nav navbar-left text-uppercase">
-	            	<li><a rel="" target="" type="" hreflang="" href="#"><strong>Menu</strong></a></li>
-	        	</ul>
 	        	<ul class="nav navbar-nav navbar-right text-uppercase">
 	            	<li class="dropdown">
 	                	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><strong>Administración</strong> <span class="caret"></span></a>
@@ -78,6 +93,22 @@
 		  						<th>Opciones <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></th>
 		  					</tr>
 		  					<?php print_projects(); ?>
+	  					</table>
+	  				</div>
+  				</div>
+			</div>
+			<div class="panel panel-default small">
+  				<div class="panel-heading"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> <strong>Ranking</strong></div>
+  				<div class="panel-body">
+	  				<div class="table-responsive">
+		  				<table class="table table-striped table-hover table-condensed">
+		  					<tr>
+		  						<th><span class="glyphicon glyphicon-certificate" aria-hidden="true"></span></th>
+		  						<th>Nombre <span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></th>
+		  						<th>Responsables <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></th>
+		  						<th>Valoración media <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></th>
+		  					</tr>
+		  					<?php print_ranking(); ?>
 	  					</table>
 	  				</div>
   				</div>

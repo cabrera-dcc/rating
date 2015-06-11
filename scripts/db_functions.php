@@ -6,7 +6,7 @@
  *
  * @author cabrera-dcc (http://cabrera-dcc.github.io)
  * @license GNU General Public License (GPLv3 - https://github.com/cabrera-dcc/rating/blob/master/LICENSE)
- * @version Beta-1 (rev. 20150610)
+ * @version Beta-1 (rev. 20150611)
 */
 
 function connectDB()
@@ -33,10 +33,12 @@ function getActiveProject()
 	$query = "SELECT * FROM projects WHERE status=1";
 	$db = connectDB();
 	$rows = $db->query($query);
-	if(!$rows){
-		return null;
+	if(count($rows) > 0){
+		return $rows;
 	}
-	return $rows;
+	else{
+		return false;
+	}
 }
 
 function isValidProject($id)
@@ -44,7 +46,7 @@ function isValidProject($id)
 	$query = "SELECT status FROM projects WHERE id=$id";
 	$db = connectDB();
 	$rows = $db->query($query);
-	if($rows){
+	if(count($rows) > 0){
 		foreach ($rows as $project) {
 			if($project['status'] == 1){
 				return true;
@@ -64,7 +66,9 @@ function insert_score($idProject,$email,$score)
 	if($db->query($query)){
 		return true;
 	}
-	return false;
+	else{
+		return false;
+	}
 }
 
 function select($query)
@@ -72,25 +76,16 @@ function select($query)
 	$db = connectDB();
 	$rows = $db->query($query);
 
-	if($rows){
+	if(count($rows) > 0){
 		return $rows;
 	}
-	
-	return false;
+	else{
+		return false;
+	}
 }
 
-function isEmailSaved($email,$project)
+function update($query)
 {
-	/*$query = "SELECT email FROM project_email_score WHERE email=$email";
 	$db = connectDB();
-	$rows = $db->query($query);
-	if($rows){
-		foreach ($rows as $row) {
-			if($row['email'] == $email && $row['idProject'] == $project){
-				return false;
-			}
-		}
-		return true;
-	}
-	return true;*/
+	$db->query($query);
 }
