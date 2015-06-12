@@ -116,20 +116,21 @@
 							<div class="panel-body">
 								<div class="input-group" id="inlineRadio">
 									<label class="radio-inline">
-										<input type="radio" name="score" id="inlineRadio1" value="1" required="required"/> 1
+										<input type="radio" name="score" id="inlineRadio1" value="1" <?php if(isset($_GET['scored'])) echo "disabled='disabled'"; ?> required="required"/> 1
 									</label>
 									<label class="radio-inline">
-										<input type="radio" name="score" id="inlineRadio2" value="2" required="required"/> 2
+										<input type="radio" name="score" id="inlineRadio2" value="2" <?php if(isset($_GET['scored'])) echo "disabled='disabled'"; ?> required="required"/> 2
 									</label>
 									<label class="radio-inline">
-										<input type="radio" name="score" id="inlineRadio3" value="3" required="required"/> 3
+										<input type="radio" name="score" id="inlineRadio3" value="3" <?php if(isset($_GET['scored'])) echo "disabled='disabled'"; ?> required="required"/> 3
 									</label>
 									<label class="radio-inline">
-										<input type="radio" name="score" id="inlineRadio4" value="4" required="required"/> 4
+										<input type="radio" name="score" id="inlineRadio4" value="4" <?php if(isset($_GET['scored'])) echo "disabled='disabled'"; ?> required="required"/> 4
 									</label>
 									<label class="radio-inline">
-										<input type="radio" name="score" id="inlineRadio5" value="5" required="required"/> 5
+										<input type="radio" name="score" id="inlineRadio5" value="5" <?php if(isset($_GET['scored'])) echo "disabled='disabled'"; ?> required="required"/> 5
 									</label>
+									<?php if(isset($_GET['scored'])) echo "Ya has votado. Gracias"; ?>
 								</div>
 							</div>
 						</div>
@@ -146,7 +147,7 @@
 						</div>
 					</div>
 					<div class="col-xs-12 col-sm-4 col-md-2">
-						<button type="submit" class="btn btn-default btn-block">Enviar</button>
+						<button name="send" type="submit" class="btn btn-default btn-block">Enviar</button>
 					</div>
 				</div>
 			</form>

@@ -23,7 +23,7 @@ else{
 	$result = insert_score($id,$email,$score);
 
 	if($result){
-		header("Location: ../index.php?Info=THANKS_FOR_YOUR_SCORE");
+		header("Location: ../index.php?scored=1");
 	}
 	else{
 		header("Location: ../index.php?Info=SCORE_ALREADY_STORED");
