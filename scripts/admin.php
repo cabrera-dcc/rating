@@ -4,7 +4,7 @@
  *
  * @author cabrera-dcc (http://cabrera-dcc.github.io)
  * @license GNU General Public License (GPLv3 - https://github.com/cabrera-dcc/rating/blob/master/LICENSE)
- * @version Beta-1 (rev. 20150611)
+ * @version Beta-1 (rev. 20150612)
 */
 
 require_once("../scripts/db_functions.php");
@@ -39,21 +39,21 @@ function print_ranking()
 
 		foreach ($rows as $row) {
 			$idProject = $row['idProject'];
-			$query = "SELECT name, responsible FROM projects WHERE id=$idProject";
+			$query = "SELECT name, responsible, status FROM projects WHERE id=$idProject";
 			$subs = select($query);
 			foreach ($subs as $sub) {
-				echo "<tr id='ref-" . $row['idProject'] . "'>";
-					echo "<td class='ref'>" . $position . "</td>";
-					echo "<td class='ref'>" . $sub['name'] . "</td>";
-					echo "<td>" . $sub['responsible'] . "</td>";
-					echo "<td>" . $row['Points'] . "</td>";
-				echo "</tr>";
-				$position++;
-				
+				if($sub['status'] == 2){
+					echo "<tr id='ref-" . $row['idProject'] . "'>";
+						echo "<td class='ref'>" . $position . "</td>";
+						echo "<td class='ref'>" . $sub['name'] . "</td>";
+						echo "<td>" . $sub['responsible'] . "</td>";
+						echo "<td>" . $row['Points'] . "</td>";
+					echo "</tr>";
+					$position++;
+				}
 			}
 		}
 	}
-
 }
 
 function start_score($option,$ref)
